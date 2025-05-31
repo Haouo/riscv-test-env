@@ -55,7 +55,7 @@ SECTIONS
         _estack = .;
         . += 0x4000;
         _sstack = .;
-        PROVIDE(stack_top = _sstack);
+        PROVIDE(__stack_top = _sstack);
     } > RAM
 
     /DISCARD/ :
