@@ -189,10 +189,17 @@ _start:                                                                  \
 // Pass/Fail Macro
 //-----------------------------------------------------------------------
 
+#define RVTEST_END \
+        li a0, 0;   \
+        ecall;      \
+        nop;        \
+        nop;        \
+        nop;        \
+        nop
+
 #define RVTEST_PASS                                                     \
         li TESTNUM, 1;                                                  \
-        li a0, 0;                                                       \
-        ecall
+        RVTEST_END
 
 #define TESTNUM gp
 
@@ -200,8 +207,7 @@ _start:                                                                  \
 1:      beqz TESTNUM, 1b;                                               \
         sll TESTNUM, TESTNUM, 1;                                        \
         or TESTNUM, TESTNUM, 1;                                         \
-        li a0, 0;                                                       \
-        ecall
+        RVTEST_END
 
 //-----------------------------------------------------------------------
 // Data Section Macro
