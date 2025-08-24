@@ -3,7 +3,7 @@ ENTRY(_start)
 
 MEMORY
 {
-    RAM : ORIGIN = 0x00000000, LENGTH = 128K /* use bit-width of 18-bit as memory address */
+    RAM : ORIGIN = 0x80000000, LENGTH = 64K /* use bit-width of 16-bit as memory address */
 }
 
 SECTIONS
